@@ -1,236 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#101010">
-  <meta name="description" content="PURE ARABIAN PRODUCTIONS — Premium video editing, post-production, color grading and sound design. Based in Cairo. Working across Egypt, the Gulf, and beyond.">
-  <title>PURE ARABIAN — Precision at Every Frame</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root { --ink:#0c0c0c; --panel:#161615; --line:rgba(243,236,218,.15); --cream:#f0ece2; --muted:#a5a197; --gold:#ba9c6f; --pad:clamp(22px,5vw,90px); }
-    * { box-sizing:border-box; }
-    html { scroll-behavior:smooth; }
-    body { margin:0; background:var(--ink); color:var(--cream); font-family:"DM Sans",Arial,sans-serif; -webkit-font-smoothing:antialiased; }
-    body::selection { background:var(--gold); color:var(--ink); }
-    a { color:inherit; text-decoration:none; }
-    button { font:inherit; }
-    .caps { font-size:11px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; }
-    .gold { color:var(--gold); }
-    .shell { padding-left:var(--pad); padding-right:var(--pad); }
-    .topbar { z-index:50; position:sticky; top:0; display:flex; justify-content:space-between; align-items:center; min-height:82px; border-bottom:1px solid var(--line); background:rgba(12,12,12,.93); backdrop-filter:blur(20px); }
-    .wordmark { font-family:Manrope,sans-serif; font-size:15px; font-weight:800; letter-spacing:.13em; }
-    .wordmark small { display:block; padding-top:5px; color:var(--gold); font-size:8px; font-weight:700; letter-spacing:.34em; }
-    .nav { display:flex; gap:clamp(18px,2.8vw,48px); align-items:center; }
-    .nav a { font-size:11px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; transition:color .2s; }
-    .nav a:hover { color:var(--gold); }
-    .nav .contactlink { border-bottom:1px solid var(--gold); padding-bottom:6px; }
-    .menu { display:none; border:1px solid var(--line); background:transparent; color:var(--cream); padding:10px 13px; cursor:pointer; }
-    .hero { position:relative; display:flex; flex-direction:column; justify-content:center; min-height:min(830px,calc(100svh - 82px)); overflow:hidden; isolation:isolate; padding-top:70px; padding-bottom:95px; }
-    .hero::before { content:""; position:absolute; inset:0; z-index:-2; background:radial-gradient(ellipse at 79% 45%,rgba(149,105,54,.20),transparent 34%),linear-gradient(110deg,#0d0d0c 45%,#222019); }
-    .hero::after { content:""; position:absolute; inset:0; z-index:-1; opacity:.25; background-image:repeating-linear-gradient(0deg,transparent 0 59px,rgba(255,255,255,.025) 60px),repeating-linear-gradient(90deg,transparent 0 59px,rgba(255,255,255,.025) 60px); }
-    .hero .eyebrow { display:flex; align-items:center; gap:17px; color:var(--gold); margin-bottom:30px; }
-    .hero .eyebrow::before { content:""; width:40px; height:1px; background:var(--gold); }
-    h1,h2,h3,p { margin-top:0; }
-    h1 { font-family:Manrope,sans-serif; font-size:clamp(55px,9vw,150px); line-height:.91; font-weight:800; letter-spacing:-.078em; margin-bottom:38px; }
-    h1 span { display:block; }
-    h1 .outline { color:transparent; -webkit-text-stroke:1px rgba(240,236,226,.82); }
-    .hero-bottom { display:flex; flex-wrap:wrap; justify-content:space-between; gap:30px; align-items:end; max-width:1120px; }
-    .hero-summary { max-width:500px; color:var(--muted); font-size:clamp(15px,1.6vw,18px); line-height:1.75; }
-    .button { display:inline-flex; align-items:center; justify-content:center; gap:20px; padding:17px 26px; border:1px solid var(--gold); color:var(--cream); background:transparent; font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; transition:background .2s,color .2s; cursor:pointer; }
-    .button:hover { background:var(--gold); color:var(--ink); }
-    .corner-mark { position:absolute; right:var(--pad); bottom:30px; color:#8b857b; }
-    section { scroll-margin-top:88px; }
-    .section { padding-top:110px; padding-bottom:115px; }
-    .section-header { display:flex; align-items:end; justify-content:space-between; flex-wrap:wrap; gap:24px; margin-bottom:43px; }
-    .section-title { font-family:Manrope,sans-serif; font-size:clamp(36px,5.6vw,78px); line-height:1.08; letter-spacing:-.065em; font-weight:800; margin:15px 0 0; }
-    .section-note { max-width:320px; color:var(--muted); font-size:14px; line-height:1.7; }
-    .reel { min-height:clamp(270px,48vw,670px); position:relative; display:grid; place-items:center; overflow:hidden; border:1px solid var(--line); background:radial-gradient(ellipse at 52% 55%,#514332 0,#29251e 28%,#111110 70%); }
-    .reel::before,.work-thumb::before { content:""; position:absolute; inset:0; opacity:.18; background:repeating-linear-gradient(110deg,transparent 0px 4px,#d3b78e 5px,transparent 6px 16px); pointer-events:none; }
-    .reel-placeholder { text-align:center; position:relative; z-index:1; padding:20px; }
-    .play-circle { display:grid; place-items:center; width:90px; height:90px; margin:0 auto 24px; border:1px solid rgba(240,236,226,.65); border-radius:50%; font-size:21px; padding-left:5px; }
-    .muted { color:var(--muted); }
-    .reel video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:none; background:#000; }
-    .reel.has-video video { display:block; }
-    .reel.has-video .reel-placeholder { display:none; }
-    .work { border-top:1px solid var(--line); }
-    .work-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; }
-    .work-card { min-width:0; }
-    .work-thumb { position:relative; display:flex; align-items:end; min-height:clamp(250px,28vw,460px); overflow:hidden; padding:23px; background:radial-gradient(circle at 65% 30%,#514334,#1b1b1a 60%,#111); border:1px solid var(--line); }
-    .work-card:nth-child(2) .work-thumb { background:radial-gradient(circle at 40% 65%,#353e3d,#141717 58%,#111); }
-    .work-card:nth-child(3) .work-thumb { background:radial-gradient(circle at 50% 40%,#494039,#1b1615 60%,#111); }
-    .work-label { position:relative; z-index:1; font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#e2d6bd; }
-    .work-meta { display:flex; align-items:center; justify-content:space-between; gap:10px; padding-top:18px; }
-    .work-meta h3 { font-size:18px; font-weight:700; margin:0; }
-    .work-meta span { font-size:11px; color:var(--muted); }
-    .services { background:#151514; }
-    .service-list { border-top:1px solid var(--line); }
-    .service { display:grid; grid-template-columns:80px 1fr minmax(160px,390px); align-items:center; gap:20px; border-bottom:1px solid var(--line); padding:34px 0; }
-    .service-number { color:var(--gold); }
-    .service h3 { font-family:Manrope,sans-serif; font-size:clamp(20px,3vw,36px); letter-spacing:-.04em; margin:0; }
-    .service p { line-height:1.7; color:var(--muted); font-size:13px; margin:0; }
-    .about-inner { display:grid; grid-template-columns:1fr 1fr; gap:clamp(30px,9vw,160px); align-items:start; }
-    .about-copy { color:#c9c4ba; font-size:clamp(18px,2vw,25px); line-height:1.75; letter-spacing:-.016em; }
-    .about-copy p { margin-bottom:18px; }
-    .about-details { border-top:1px solid var(--line); padding-top:22px; color:var(--gold); line-height:1.8; }
-    .contact { position:relative; background:#e8e0d2; color:#151411; padding-top:100px; padding-bottom:100px; }
-    .contact h2 { font:800 clamp(52px,9vw,134px)/.98 Manrope,sans-serif; letter-spacing:-.075em; margin:18px 0 45px; }
-    .contact a.mail { display:inline-block; border-bottom:1px solid #8d7658; padding-bottom:7px; font-size:clamp(16px,2.4vw,26px); overflow-wrap:anywhere; }
-    .contact-row { display:flex; flex-wrap:wrap; gap:20px; justify-content:space-between; align-items:center; }
-    .contact .social { text-transform:uppercase; font-size:12px; font-weight:700; letter-spacing:.12em; }
-    footer { display:flex; justify-content:space-between; gap:15px; flex-wrap:wrap; padding:27px var(--pad); color:var(--muted); font-size:10px; text-transform:uppercase; letter-spacing:.13em; }
-    @media (max-width:850px) {
-      .topbar { min-height:70px; }
-      .menu { display:block; }
-      .nav { display:none; position:absolute; top:70px; left:0; right:0; flex-direction:column; align-items:start; gap:25px; padding:35px var(--pad); background:#101010; border-bottom:1px solid var(--line); }
-      .nav.open { display:flex; }
-      .hero { min-height:680px; }
-      .work-grid { grid-template-columns:1fr 1fr; }
-      .service { grid-template-columns:42px 1fr; }
-      .service p { grid-column:2; max-width:450px; }
-      .about-inner { grid-template-columns:1fr; }
-    }
-    @media (max-width:580px) {
-      h1 { font-size:clamp(49px,13vw,78px); }
-      .hero { min-height:650px; }
-      .work-grid { grid-template-columns:1fr; }
-      .work-thumb { min-height:350px; }
-      .section { padding-top:78px; padding-bottom:80px; }
-      .contact { padding-top:75px; padding-bottom:75px; }
-    }
-    @media (prefers-reduced-motion:reduce) {
-      html { scroll-behavior:auto; }
-      *,*::before,*::after { transition:none!important; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pure Arabian Productions — Cinematic Post-Production</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#0A0806;--bg2:#120E0A;--card:#17110C;--gold:#C4933A;--gold2:#E0B866;--parch:#E3CFA0;--text:#EDE4D0;--mute:#9C917B;--line:rgba(196,147,58,.25);--mah:#6E2A2A}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#F4EAD2;--bg2:#EBDDBB;--card:#FBF4E3;--gold:#8A6420;--gold2:#6E4E14;--parch:#2A1A10;--text:#2A1D12;--mute:#6B5A40;--line:rgba(110,42,42,.25);color-scheme:light}}
+:root[data-theme="light"]{--bg:#F4EAD2;--bg2:#EBDDBB;--card:#FBF4E3;--gold:#8A6420;--gold2:#6E4E14;--parch:#2A1A10;--text:#2A1D12;--mute:#6B5A40;--line:rgba(110,42,42,.25);color-scheme:light}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px)}
+body{margin:0;background:var(--bg);color:var(--text);font:300 16px/1.7 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:60}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;margin:0;line-height:1.1;color:var(--parch)}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:"Cormorant Garamond",serif;font-size:20px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold2)}
+.logo small{display:block;font-family:Inter;font-size:8px;letter-spacing:.5em;color:var(--mute);margin-top:-2px}
+.links{display:flex;gap:28px;align-items:center;font-size:12px;letter-spacing:.18em;text-transform:uppercase}
+.links a:hover{color:var(--gold2)}
+.btn{display:inline-block;border:1px solid var(--gold);color:var(--gold2);padding:13px 30px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;transition:.3s;background:transparent;cursor:pointer}
+.btn:hover,.btn.solid{background:var(--gold);color:#0A0806}
+.btn.solid:hover{background:var(--gold2)}
+@media(max-width:760px){.links a:not(.btn){display:none}}
+.hero{position:relative;min-height:92vh;display:grid;place-items:center;text-align:center;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero svg.pat{position:absolute;inset:0;width:100%;height:100%;opacity:.5}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,transparent 15%,var(--bg) 78%)}
+.hero .in{position:relative;z-index:2;padding:80px 24px}
+.eyebrow{font-size:11px;letter-spacing:.5em;text-transform:uppercase;color:var(--gold)}
+.ar{font-family:Amiri,serif;font-size:clamp(34px,6vw,60px);color:var(--gold2);margin:18px 0 6px;direction:rtl}
+.hero h1{font-size:clamp(40px,8vw,92px);letter-spacing:.02em;margin:10px 0 22px}
+.hero h1 em{font-style:italic;color:var(--gold2)}
+.hero p{max-width:600px;margin:0 auto 38px;color:var(--mute);font-size:17px}
+.ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.orn{display:flex;align-items:center;gap:14px;justify-content:center;color:var(--gold);margin:6px 0}
+.orn::before,.orn::after{content:"";height:1px;width:70px;background:var(--line)}
+section{padding:110px 0}
+.head{text-align:center;margin-bottom:60px}
+.head h2{font-size:clamp(34px,5vw,56px);margin-top:12px}
+.head p{color:var(--mute);max-width:560px;margin:14px auto 0}
+.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border-bottom:1px solid var(--line);background:var(--bg2)}
+.strip div{padding:34px 20px;text-align:center;border-right:1px solid var(--line)}
+.strip b{display:block;font:500 40px "Cormorant Garamond",serif;color:var(--gold2)}
+.strip span{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--mute)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.svc{background:var(--card);padding:44px 34px;position:relative;transition:.4s}
+.svc:hover{background:var(--bg2)}
+.svc .n{font:italic 400 15px "Cormorant Garamond",serif;color:var(--gold)}
+.svc h3{font-size:28px;margin:14px 0 12px}
+.svc p{color:var(--mute);margin:0;font-size:15px}
+.svc::after{content:"";position:absolute;left:34px;bottom:0;height:2px;width:0;background:var(--gold);transition:.5s}
+.svc:hover::after{width:calc(100% - 68px)}
+.reel{position:relative;aspect-ratio:16/9;max-height:560px;width:100%;display:grid;place-items:center;border:1px solid var(--gold);background:radial-gradient(circle at 30% 30%,#2a1c10,var(--bg) 70%);overflow:hidden}
+.reel::before{content:"";position:absolute;inset:14px;border:1px solid var(--line)}
+.play{width:92px;height:92px;border:1px solid var(--gold2);border-radius:50%;display:grid;place-items:center;transition:.4s;position:relative;z-index:2}
+.play::after{content:"";border-left:20px solid var(--gold2);border-top:12px solid transparent;border-bottom:12px solid transparent;margin-left:6px}
+.reel:hover .play{background:rgba(196,147,58,.18);transform:scale(1.08)}
+.reel .cap{position:absolute;bottom:26px;left:0;right:0;text-align:center;font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--mute)}
+.work{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+.card{position:relative;aspect-ratio:4/5;display:flex;flex-direction:column;justify-content:flex-end;padding:26px;border:1px solid var(--line);overflow:hidden;transition:.5s}
+.card::before{content:"";position:absolute;inset:0;background:var(--g);transition:.7s}
+.card::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,8,6,.92),transparent 62%)}
+.card:hover::before{transform:scale(1.08)}
+.card:hover{border-color:var(--gold)}
+.card>*{position:relative;z-index:2}
+.card small{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold2)}
+.card h3{font-size:30px;margin:8px 0 4px;color:#F1E6CC}
+.card span{font-size:13px;color:#BFB294}
+.card .tag{position:absolute;top:22px;right:22px;font:italic 14px "Cormorant Garamond",serif;color:var(--gold2)}
+.mk{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.mk span{border:1px solid var(--line);padding:12px 26px;font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:var(--parch)}
+.band{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.quote{max-width:820px;margin:0 auto;text-align:center}
+.quote h2{font-size:clamp(28px,4.4vw,46px);font-style:italic;font-weight:400}
+.contact{text-align:center;position:relative;overflow:hidden}
+.contact h2{font-size:clamp(38px,6vw,76px);margin:16px 0}
+.mail{display:inline-block;font:italic 500 clamp(20px,3.4vw,34px) "Cormorant Garamond",serif;color:var(--gold2);border-bottom:1px solid var(--gold);padding-bottom:4px;margin:10px 0 34px;word-break:break-all}
+footer{border-top:1px solid var(--line);padding:34px 0 40px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:center}
+footer .s{display:flex;gap:22px;flex-wrap:wrap}
+footer a:hover{color:var(--gold2)}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s,transform .9s}
+.rv.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
 </head>
 <body>
-  <header class="topbar shell">
-    <a class="wordmark" href="#home" aria-label="Pure Arabian home">
-      PURE ARABIAN <small>PRODUCTIONS</small>
-    </a>
-    <button class="menu caps" aria-label="Open menu" aria-expanded="false" aria-controls="nav" type="button">MENU</button>
-    <nav class="nav" id="nav" aria-label="Main navigation">
-      <a href="#showreel">Showreel</a>
-      <a href="#work">Work</a>
-      <a href="#services">Services</a>
-      <a href="#about">About</a>
-      <a class="contactlink" href="#contact">Get in touch ↗</a>
-    </nav>
-  </header>
+<nav><div class="wrap">
+<a href="#top" class="logo">Pure Arabian<small>PRODUCTIONS</small></a>
+<div class="links"><a href="#services">Services</a><a href="#reel">Reel</a><a href="#work">Work</a><a href="#contact" class="btn">Enquire</a></div>
+</div></nav>
 
-  <main>
-    <section class="hero shell" id="home">
-      <div class="eyebrow caps">Independent post-production studio</div>
-      <h1><span>PURE</span><span class="outline">ARABIAN.</span></h1>
-      <div class="hero-bottom">
-        <div>
-          <div class="caps gold" style="margin-bottom:16px">Precision at every frame.</div>
-          <p class="hero-summary">Crafting impactful visual stories through meticulous editing, color, and sound. Based in Cairo. Working across Egypt, the Gulf, and beyond.</p>
-        </div>
-        <a class="button" href="#work">Explore our work <span aria-hidden="true">↗</span></a>
-      </div>
-      <span class="corner-mark caps">Cairo · Worldwide</span>
-    </section>
+<header class="hero" id="top">
+<svg class="pat" aria-hidden="true"><defs><pattern id="p" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M40 4 L48 22 L68 14 L58 32 L76 40 L58 48 L68 66 L48 58 L40 76 L32 58 L12 66 L22 48 L4 40 L22 32 L12 14 L32 22Z" fill="none" stroke="#C4933A" stroke-width=".6" opacity=".45"/><circle cx="40" cy="40" r="6" fill="none" stroke="#C4933A" stroke-width=".5" opacity=".4"/></pattern></defs><rect width="100%" height="100%" fill="url(#p)"/></svg>
+<div class="in">
+<div class="eyebrow">Cairo · Gulf · Worldwide</div>
+<div class="ar">بيور أرابيان</div>
+<h1>Stories shaped in <em>gold</em><br>and shadow.</h1>
+<div class="orn">◆</div>
+<p>A premium post-production house. Editing, colour, sound and AI-assisted visuals, crafted for brands that carry heritage and demand cinema.</p>
+<div class="ctas"><a href="#work" class="btn solid">View the work</a><a href="#contact" class="btn">Start a project</a></div>
+</div>
+</header>
 
-    <section class="section shell" id="showreel">
-      <div class="section-header">
-        <div><div class="caps gold">01 / Film</div><h2 class="section-title">Our showreel.</h2></div>
-        <p class="section-note">An introduction to the images, energy, and details behind our work.</p>
-      </div>
-      <!-- TO ADD YOUR SHOWREEL:
-           1. Put a compressed video in assets/showreel.mp4 (create the assets folder).
-           2. Uncomment the video element below by removing the HTML comment markers.
-           3. Delete the <div class="reel-placeholder"> block if desired.
-           For large reels, Vimeo/YouTube embedding is preferable to GitHub storage. -->
-      <div class="reel" id="reelBox">
-        <!-- <video controls playsinline preload="metadata" poster="assets/showreel-poster.jpg"><source src="assets/showreel.mp4" type="video/mp4"></video> -->
-        <div class="reel-placeholder">
-          <div class="play-circle" aria-hidden="true">▶</div>
-          <div class="caps">Your showreel goes here</div>
-          <p class="muted" style="margin:12px 0 0;font-size:13px">Add your video or Vimeo embed before publishing the final portfolio.</p>
-        </div>
-      </div>
-    </section>
+<div class="strip">
+<div><b>7+</b><span>Featured campaigns</span></div>
+<div><b>6</b><span>Disciplines</span></div>
+<div><b>AR · EN</b><span>Native bilingual</span></div>
+<div><b>Rush</b><span>Fast delivery available</span></div>
+</div>
 
-    <section class="section shell work" id="work">
-      <div class="section-header">
-        <div><div class="caps gold">02 / Selected work</div><h2 class="section-title">Every frame<br>with purpose.</h2></div>
-        <p class="section-note">Replace these sample cards with your actual project thumbnails and video links.</p>
-      </div>
-      <div class="work-grid">
-        <!-- CUSTOMIZE: Replace titles, categories, and the gradient thumbnails with your real portfolio items. -->
-        <article class="work-card">
-          <div class="work-thumb"><span class="work-label">Add project thumbnail / video</span></div>
-          <div class="work-meta"><h3>Commercial film</h3><span>Editing</span></div>
-        </article>
-        <article class="work-card">
-          <div class="work-thumb"><span class="work-label">Add project thumbnail / video</span></div>
-          <div class="work-meta"><h3>Color showcase</h3><span>Color grading</span></div>
-        </article>
-        <article class="work-card">
-          <div class="work-thumb"><span class="work-label">Add project thumbnail / video</span></div>
-          <div class="work-meta"><h3>Brand storytelling</h3><span>Post-production</span></div>
-        </article>
-      </div>
-    </section>
+<section id="services"><div class="wrap">
+<div class="head rv"><div class="eyebrow">What we do</div><h2>The craft, end to end</h2><p>One studio from first cut to final master.</p></div>
+<div class="grid rv">
+<div class="svc"><div class="n">I</div><h3>Post-Production</h3><p>Full finishing pipeline: conform, delivery formats and platform-ready masters for cinema, broadcast and social.</p></div>
+<div class="svc"><div class="n">II</div><h3>Sound Design</h3><p>Layered atmospheres, impacts, foley and mix. Sound that makes a luxury frame feel expensive.</p></div>
+<div class="svc"><div class="n">III</div><h3>Storytelling</h3><p>Narrative structure for brand films and campaigns: the emotional arc behind every cut.</p></div>
+<div class="svc"><div class="n">IV</div><h3>Video Editing</h3><p>Rhythm-led editing with precise transitions and motion graphics, from 15-second reels to corporate films.</p></div>
+<div class="svc"><div class="n">V</div><h3>Colour Grading</h3><p>Rich, warm, cinematic looks: skin-true tones, deep blacks and golden highlights tuned to your brand palette.</p></div>
+<div class="svc"><div class="n">VI</div><h3>AI Video &amp; Visuals</h3><p>AI-assisted visuals directed with a human eye: concept imagery, motion and enhancements, art-directed to stay on brand.</p></div>
+</div></div></section>
 
-    <section class="section shell services" id="services">
-      <div class="section-header">
-        <div><div class="caps gold">03 / What we do</div><h2 class="section-title">Our craft.</h2></div>
-        <p class="section-note">The finishing touches that turn compelling footage into memorable storytelling.</p>
-      </div>
-      <div class="service-list">
-        <div class="service"><span class="caps service-number">01</span><h3>Video editing</h3><p>Story-led pacing, structure, and visual rhythm for films, brands, and social content.</p></div>
-        <div class="service"><span class="caps service-number">02</span><h3>Post-production</h3><p>Refined finishing and attention to detail from the first cut through final delivery.</p></div>
-        <div class="service"><span class="caps service-number">03</span><h3>Color grading</h3><p>Distinctive, cinematic color treatments tailored to each project’s visual identity.</p></div>
-        <div class="service"><span class="caps service-number">04</span><h3>Sound design</h3><p>Sound that supports emotion, atmosphere, impact, and the story behind every frame.</p></div>
-      </div>
-    </section>
+<section id="reel" class="band"><div class="wrap">
+<div class="head rv"><div class="eyebrow">Showreel</div><h2>See it in motion</h2></div>
+<a class="reel rv" href="https://vimeo.com/user261707854" target="_blank" rel="noopener" aria-label="Watch the showreel on Vimeo"><div class="play"></div><div class="cap">Watch the reel on Vimeo</div></a>
+</div></section>
 
-    <section class="section shell" id="about">
-      <div class="about-inner">
-        <div><div class="caps gold">04 / The studio</div><h2 class="section-title">Rooted in origin.<br>Made to move.</h2></div>
-        <div>
-          <div class="about-copy">
-            <p>PURE ARABIAN PRODUCTIONS is a Cairo-based creative post-production brand focused on thoughtful, high-quality visual storytelling.</p>
-            <p>We bring precision, character, and purpose to each project — from punchy commercial cuts to expressive color and sound.</p>
-          </div>
-          <div class="about-details caps">Based in Cairo · Working across Egypt, the Gulf, and beyond</div>
-        </div>
-      </div>
-    </section>
+<section id="work"><div class="wrap">
+<div class="head rv"><div class="eyebrow">Selected collaborations</div><h2>Brands we’ve worked with</h2><p>Campaigns and films delivered across Egypt and the Gulf.</p></div>
+<div class="work rv">
+<a class="card" style="--g:linear-gradient(145deg,#6E2A2A,#1a0e0a)" href="https://www.behance.net/seifhatem4" target="_blank" rel="noopener"><div class="tag">01</div><small>Brand story film</small><h3>Dearest D</h3><span>Cairo</span></a>
+<a class="card" style="--g:linear-gradient(145deg,#9B6840,#1c120b)" href="https://www.behance.net/seifhatem4" target="_blank" rel="noopener"><div class="tag">02</div><small>Summer campaign</small><h3>Haj Arafa</h3><span>Egypt</span></a>
+<a class="card" style="--g:linear-gradient(145deg,#3a2a1c,#0e0a07)" href="https://www.behance.net/seifhatem4" target="_blank" rel="noopener"><div class="tag">03</div><small>Content campaign</small><h3>Dope Specialty Coffee</h3><span>Cairo</span></a>
+<a class="card" style="--g:linear-gradient(145deg,#C4933A,#2a1a0c)" href="https://www.behance.net/seifhatem4" target="_blank" rel="noopener"><div class="tag">04</div><small>Lifestyle campaign</small><h3>C-Hub</h3><span>North Coast</span></a>
+<a class="card" style="--g:linear-gradient(145deg,#2b2b2b,#0a0806)" href="https://www.behance.net/seifhatem4" target="_blank" rel="noopener"><div class="tag">05</div><small>Corporate film</small><h3>Qontrac / YARU</h3><span>Egypt</span></a>
+<a class="card" style="--g:linear-gradient(145deg,#4a3418,#120c06)" href="https://www.behance.net/seifhatem4" target="_blank" rel="noopener"><div class="tag">06</div><small>Mawlid campaign</small><h3>Amir El Domiaty</h3><span>Egypt</span></a>
+<a class="card" style="--g:linear-gradient(145deg,#7a5a22,#0c0905)" href="https://www.behance.net/seifhatem4" target="_blank" rel="noopener"><div class="tag">07</div><small>Cinematic showcase</small><h3>The Emirates</h3><span>UAE</span></a>
+</div></div></section>
 
-    <section class="contact shell" id="contact">
-      <div class="caps">05 / Contact</div>
-      <h2>Let's make<br>something matter.</h2>
-      <div class="contact-row">
-        <a class="mail" href="mailto:notpurearabian@gmail.com">notpurearabian@gmail.com ↗</a>
-        <a class="social" href="https://www.instagram.com/purearabian/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
-      </div>
-    </section>
-  </main>
+<section class="band"><div class="wrap quote rv">
+<div class="orn">◆</div>
+<h2>“Heritage is not decoration. It is the feeling behind every frame.”</h2>
+<p style="color:var(--mute);margin-top:22px">Pure Arabian blends Arabic visual language with modern cinematic technique, so your story feels rooted, premium and global.</p>
+</div></section>
 
-  <footer>
-    <span>© <span id="year">2026</span> Pure Arabian Productions</span>
-    <span>Precision at every frame.</span>
-  </footer>
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-    const menu = document.querySelector(".menu");
-    const nav = document.getElementById("nav");
-    menu.addEventListener("click", () => {
-      const open = nav.classList.toggle("open");
-      menu.setAttribute("aria-expanded", String(open));
-      menu.textContent = open ? "CLOSE" : "MENU";
-    });
-    nav.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
-      nav.classList.remove("open"); menu.setAttribute("aria-expanded","false"); menu.textContent="MENU";
-    }));
-    const video = document.querySelector("#reelBox video");
-    if (video) document.getElementById("reelBox").classList.add("has-video");
-  </script>
+<section><div class="wrap">
+<div class="head rv"><div class="eyebrow">Markets</div><h2>Built for a global client</h2><p>Working remotely with agencies and brands in every timezone, with Arabic and English subtitles and rush turnaround.</p></div>
+<div class="mk rv"><span>GCC</span><span>Egypt</span><span>Africa</span><span>Europe</span><span>USA</span></div>
+</div></section>
+
+<section class="contact band" id="contact"><div class="wrap rv">
+<div class="eyebrow">Let’s create</div>
+<h2>Have a story worth telling?</h2>
+<p style="color:var(--mute);max-width:520px;margin:0 auto">Send your brief, timeline and references. We reply with a clear plan and quote.</p>
+<a class="mail" href="mailto:notpurearabian@gmail.com?subject=Project%20enquiry%20%E2%80%94%20Pure%20Arabian">notpurearabian@gmail.com</a><br>
+<a class="btn solid" href="mailto:notpurearabian@gmail.com?subject=Project%20enquiry%20%E2%80%94%20Pure%20Arabian">Start a project</a>
+</div></section>
+
+<footer><div class="wrap">
+<div>© 2026 Pure Arabian Productions</div>
+<div class="s"><a href="https://instagram.com/purearabian" target="_blank" rel="noopener">Instagram</a><a href="https://vimeo.com/user261707854" target="_blank" rel="noopener">Vimeo</a><a href="https://www.behance.net/seifhatem4" target="_blank" rel="noopener">Behance</a><a href="https://linkedin.com/in/pure-arabian-371aa2426" target="_blank" rel="noopener">LinkedIn</a></div>
+</div></footer>
+
+<script>
+(function(){
+var els=document.querySelectorAll('.rv');
+if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('on')});return}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.12});
+els.forEach(function(e){io.observe(e)});
+})();
+</script>
 </body>
 </html>
